@@ -1,0 +1,5 @@
+# ignore node_modules
+node_modules
+
+# ignore work from milestone 1
+milestone-1
