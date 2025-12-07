@@ -1,7 +1,21 @@
 import BlogPreview from "@/components/blogPreview";
-import type { Blog } from "../blogData";
+import BlogModel from "../../database/blogSchema";
 import style from "./blog.module.css";
 import blogs from "../blogData";
+import connectDB from "@/database/db";
+
+async function getBlogs(){
+	await connectDB() // function from db.ts before
+
+	try {
+			// query for all blogs and sort by date
+	    const blogs = await BlogModel.find().sort({ date: -1 }).orFail()
+			// send a response as the blogs as the message
+	    return blogs
+	} catch (err) {
+	    return null
+	}
+}
 
 export default function Blog() {
   return (
