@@ -1,7 +1,6 @@
 import BlogPreview from "@/components/blogPreview";
 import BlogModel from "../../database/blogSchema";
 import style from "./blog.module.css";
-import blogs from "../blogData";
 import connectDB from "@/database/db";
 
 async function getBlogs(){
@@ -17,7 +16,11 @@ async function getBlogs(){
 	}
 }
 
-export default function Blog() {
+export default async function Blog() {
+  const blogs = await getBlogs();
+
+  if (blogs != null) {
+
   return (
     <div>
       <main>
@@ -26,13 +29,30 @@ export default function Blog() {
         </h1>
         <div className={style.blog}>
           <div id="blog-container" className={style.blogContainer}>
-            {blogs.map(blog =>
+                {blogs.map(blog =>
                 <BlogPreview  key={blog.title} {...blog} />
-            )}
+                )}
           </div>
         </div>
       </main>
       <footer className="footer">© 2025 | All Rights Reserved</footer>
     </div>
   );
+  } else {
+    return (
+      <div>
+      <main>
+        <h1 className={style.pageTitle}>
+          <strong>blog</strong>
+        </h1>
+        <div className={style.blog}>
+          <div id="blog-container" className={style.blogContainer}>
+                <p>No Blogs Found</p>
+          </div>
+        </div>
+      </main>
+      <footer className="footer">© 2025 | All Rights Reserved</footer>
+    </div>
+    );
+  }
 }
