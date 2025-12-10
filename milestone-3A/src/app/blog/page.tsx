@@ -19,8 +19,6 @@ async function getBlogs(){
 export default async function Blog() {
   const blogs = await getBlogs();
 
-  if (blogs != null) {
-
   return (
     <div>
       <main>
@@ -29,7 +27,7 @@ export default async function Blog() {
         </h1>
         <div className={style.blog}>
           <div id="blog-container" className={style.blogContainer}>
-                {blogs.map(blog =>
+                {blogs && blogs.map(blog =>
                 <BlogPreview  key={blog.title} {...blog} />
                 )}
           </div>
@@ -38,21 +36,4 @@ export default async function Blog() {
       <footer className="footer">© 2025 | All Rights Reserved</footer>
     </div>
   );
-  } else {
-    return (
-      <div>
-      <main>
-        <h1 className={style.pageTitle}>
-          <strong>blog</strong>
-        </h1>
-        <div className={style.blog}>
-          <div id="blog-container" className={style.blogContainer}>
-                <p>No Blogs Found</p>
-          </div>
-        </div>
-      </main>
-      <footer className="footer">© 2025 | All Rights Reserved</footer>
-    </div>
-    );
-  }
 }
