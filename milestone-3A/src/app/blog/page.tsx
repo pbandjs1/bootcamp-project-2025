@@ -19,6 +19,8 @@ async function getBlogs(){
 export default async function Blog() {
   const blogs = await getBlogs();
 
+  if (!blogs) { return <div></div> }
+
   return (
     <div>
       <main>
@@ -27,7 +29,7 @@ export default async function Blog() {
         </h1>
         <div className={style.blog}>
           <div id="blog-container" className={style.blogContainer}>
-                {blogs && blogs.map(blog =>
+                {blogs.map(blog =>
                 <BlogPreview  key={blog.title} {...blog} />
                 )}
           </div>
