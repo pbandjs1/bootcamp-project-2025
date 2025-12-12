@@ -29,7 +29,7 @@ export default function BlogPreview({ blog }: { blog: BlogDoc }) {
         </p>
       </div>
       <div className={style.blogImageContainer}>
-        <Link href={`/blogs/${blog.slug}`}>
+        <Link href={`/blog/${blog.slug}`}>
           <Image
             className={style.blogImage}
             src={blog.image}
