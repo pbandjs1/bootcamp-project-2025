@@ -3,23 +3,21 @@ import BlogModel from "../../database/blogSchema";
 import style from "./blog.module.css";
 import connectDB from "@/database/db";
 
-async function getBlogs(){
-	await connectDB() // function from db.ts before
+async function getBlogs() {
+  await connectDB(); // function from db.ts before
 
-	try {
-			// query for all blogs and sort by date
-	    const blogs = await BlogModel.find().sort({ date: -1 }).orFail()
-			// send a response as the blogs as the message
-	    return blogs
-	} catch (err) {
-	    return null
-	}
+  try {
+    // query for all blogs and sort by date
+    const blogs = await BlogModel.find().sort({ date: -1 }).orFail();
+    // send a response as the blogs as the message
+    return blogs;
+  } catch (err) {
+    return null;
+  }
 }
 
 export default async function Blog() {
   const blogs = await getBlogs();
-
-  if (!blogs) { return <div></div> }
 
   return (
     <div>
@@ -29,9 +27,10 @@ export default async function Blog() {
         </h1>
         <div className={style.blog}>
           <div id="blog-container" className={style.blogContainer}>
-                {blogs.map(blog =>
-                <BlogPreview  key={blog.title} {...blog} />
-                )}
+            {blogs ? blogs.map((blog) => (
+              <BlogPreview key={blog.title} blog={blog} />
+            )) : 
+            <p className={style.blogTextP}>No Blogs Found</p>}
           </div>
         </div>
       </main>
