@@ -1,6 +1,6 @@
 import React from "react";
 
-type IComment = {
+export type IComment = {
   user: string;
   comment: string;
   time: Date;

@@ -22,7 +22,7 @@ async function getProject(slug: string) {
   }
 }
 
-export default async function Blog({ params }: Props) {
+export default async function Project({ params }: Props) {
   const { slug } = await params;
   const project = await getProject(slug);
 
@@ -60,9 +60,10 @@ export default async function Blog({ params }: Props) {
           </div>
         </div>
         <div className={style.commentContainer}>
-          {project.comments.map((comment: any, index: number) => (
+          {project.comments ? project.comments.map((comment: any, index: number) => (
             <Comment key={index} comment={comment} />
-          ))}
+          )) :
+          <p>No Comments Yet</p>}
         </div>
       </div>
     </div>

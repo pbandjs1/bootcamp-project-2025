@@ -1,18 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { BlogDoc } from "@/database/blogSchema";
 
 import style from "./blogPreview.module.css";
-
-type BlogDoc = {
-  title: string;
-  author: string;
-  date: Date;
-  description: string;
-  image: string;
-  image_alt: string;
-  slug: string;
-};
 
 export default function BlogPreview({ blog }: { blog: BlogDoc }) {
   return (
