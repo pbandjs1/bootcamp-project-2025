@@ -8,12 +8,11 @@ export async function GET(
 ) {
 	const { slug } = await params;
 	await connectDB();
-	console.log(slug)
 
 	try {
-		const blog = await projectSchema.findOne({ slug }).orFail()
-		return NextResponse.json(blog)
+		const project = await projectSchema.findOne({ slug }).orFail()
+		return NextResponse.json(project)
 	} catch (err) {
-		return NextResponse.json('Blog not found.', { status: 404 })
+		return NextResponse.json('Project not found.', { status: 404 })
 	}
 }

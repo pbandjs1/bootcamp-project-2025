@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema, models } from "mongoose";
 
 // typescript type (can also be an interface)
 type Project = {
@@ -24,7 +24,7 @@ const projectSchema = new Schema<Project>({
 })
 
 // defining the collection and model
-const ProjectModel = mongoose.models['projects'] ||
-    mongoose.model('projects', projectSchema);
+const ProjectModel = models.portfolioData ||
+    mongoose.model("portfolioData", projectSchema, "portfolioData");
 
 export default ProjectModel;

@@ -1,5 +1,4 @@
 import React from "react";
-import type { Blog } from "@/app/blogData";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,8 +15,6 @@ type BlogDoc = {
 };
 
 export default function BlogPreview({ blog }: { blog: BlogDoc }) {
-  console.log(blog.slug);
-  console.log(blog.image);
   return (
     <div className={style.blogPost}>
       <div className={style.blogTextContainer}>
