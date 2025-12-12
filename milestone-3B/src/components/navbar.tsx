@@ -8,10 +8,10 @@ export default function Navbar() {
         <h1 className={style.logo}><a href="./">personal website</a></h1>
         <nav className={style.navList}>
             <Link href="/">Home</Link>
-            <Link href="./blog">Blog</Link>
-            <Link href="./portfolio">Portfolio</Link>
-            <Link href="./resume">Resume</Link>
-            <Link href="./contact">Contact</Link>
+            <Link href="/blog">Blog</Link>
+            <Link href="/portfolio">Portfolio</Link>
+            <Link href="/resume">Resume</Link>
+            <Link href="/contact">Contact</Link>
         </nav>
     </header>
   );
