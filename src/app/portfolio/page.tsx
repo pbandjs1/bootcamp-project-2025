@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import connectDB from "@/database/db";
 import style from "./portfolio.module.css";
 import ProjectModel from "@/database/projectSchema";

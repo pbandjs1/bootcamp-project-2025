@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import BlogPreview from "@/components/blogPreview";
 import BlogModel from "../../database/blogSchema";
 import style from "./blog.module.css";
