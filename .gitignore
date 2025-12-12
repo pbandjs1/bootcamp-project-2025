@@ -3,9 +3,3 @@
 
 # ignore node_modules
 node_modules
-
-# ignore work from previous milestones
-milestone-1
-milestone-2
-milestone-3A
-milestone-3B
