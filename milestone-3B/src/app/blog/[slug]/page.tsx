@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import style from "./blogPage.module.css";
 import connectDB from "@/database/db";
 import blogSchema from "@/database/blogSchema";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Comment from "@/components/comment";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -55,6 +57,11 @@ export default async function Blog({ params }: Props) {
             </h2>
             <p>{blog.description}</p>
           </div>
+        </div>
+        <div className={style.commentContainer}>
+          {blog.comments.map((comment: any, index: number) => (
+            <Comment key={index} comment={comment} />
+          ))}
         </div>
       </div>
     </div>
