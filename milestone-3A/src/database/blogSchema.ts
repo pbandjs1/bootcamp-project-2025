@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema, models } from "mongoose";
 
 // typescript type (can also be an interface)
 type Blog = {
@@ -19,13 +19,14 @@ const blogSchema = new Schema<Blog>({
     slug: { type: String, required: true },
     date: { type: Date, required: false, default: new Date() },
     description: { type: String, required: true },
+    content: { type: String, required: true },
     image: { type: String, required: true },
     image_alt: { type: String, required: true },
-    content: { type: String, required: true },
+    
 })
 
 // defining the collection and model
-const BlogModel = mongoose.models['blogs'] ||
-    mongoose.model('blogs', blogSchema);
+const BlogModel = models.blogData ||
+    mongoose.model("blogData", blogSchema, "blogData");
 
 export default BlogModel;
