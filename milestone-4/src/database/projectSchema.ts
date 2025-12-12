@@ -1,7 +1,18 @@
+import { IComment } from "@/components/comment";
 import mongoose, { Schema, models } from "mongoose";
 
+export type ProjectDoc = {
+  title: string;
+  author: string;
+  date: Date;
+  description: string;
+  image: string;
+  image_alt: string;
+  slug: string;
+};
+
 // typescript type (can also be an interface)
-type Project = {
+export type Project = {
     title: string;
     slug: string;
     date: Date;
@@ -9,11 +20,12 @@ type Project = {
     content: string; // text content for individual project page
     image: string; // url for string in public
     image_alt: string; // alt for image
+    comments: IComment[];
 };
 
 
 // mongoose schema 
-const projectSchema = new Schema<Project>({
+export const projectSchema = new Schema<Project>({
     title: { type: String, required: true },
     slug: { type: String, required: true },
     date: { type: Date, required: false, default: new Date() },

@@ -59,9 +59,10 @@ export default async function Blog({ params }: Props) {
           </div>
         </div>
         <div className={style.commentContainer}>
-          {blog.comments.map((comment: any, index: number) => (
+          {blog.comments ? blog.comments.map((comment: any, index: number) => (
             <Comment key={index} comment={comment} />
-          ))}
+          )) :
+          <p>No Comments Yet</p>}
         </div>
       </div>
     </div>
