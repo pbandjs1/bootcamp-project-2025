@@ -24,25 +24,23 @@ export default async function Blog({ params }: Props) {
   const { slug } = await params;
   const blog = await getBlog(slug);
 
-  console.log("Slug:" + slug);
-
   if (!blog) {
     notFound();
   }
 
   return (
     <div>
-      <main>
-        <h1 className={style.blogTextH1}>
-          <strong>{blog.title}</strong>
-        </h1>
-        <div className={style.blogContainer}>
+      <div className={style.blogContainer}>
+        <div className={style.blogPost}>
+          <h1 className={style.blogTextH1}>
+            <strong>{blog.title}</strong>
+          </h1>
           <div className={style.imageContainer}>
             <Image
               src={blog.image}
-              alt={blog.image_alt}
-              width={300}
-              height={300}
+              alt={blog.image_alt || "image"}
+              width={500}
+              height={500}
             />
           </div>
           <div className={style.blogTextP}>
@@ -58,7 +56,7 @@ export default async function Blog({ params }: Props) {
             <p>{blog.description}</p>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default function ProjectPreview({ project }: { project: ProjectDoc }) {
         <div className={style.project}>
             <div className={style.projectDetails}>
                 <div className={style.projectImage}>
-                    <Link href={`/projects/${project.slug}`}>
+                    <Link href={`/portfolio/${project.slug}`}>
                         <Image src={project.image} alt={project.image_alt} width={300} height={300} />
                     </Link>
                 </div>

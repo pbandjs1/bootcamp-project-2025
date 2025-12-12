@@ -5,20 +5,22 @@
   font-family: Georgia;
 }
 
-.blogContainer {
+.projectContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   max-width: 100%;
   margin: 1em 0 2em 0;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
   /* Debug border */
   /* border: 2px solid blue; */
 }
 
-.blogPost {
+.projectPost {
   display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--cg-white);
   width: 60%;
   height: 100%;
@@ -34,33 +36,27 @@
   text-align: left;
 }
 
-.blogTextContainer {
+.projectTextContainer {
   flex-direction: column;
   justify-content: center;
 }
 
-.imageContainer {
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.blogText {
+.projectText {
   flex: 1;
   margin-left: 20px;
 }
 
-.blogTextH1 {
+.projectTextH1 {
   font-size: 32px;
   margin-bottom: 16px;
 }
 
-.blogTextH2 {
+.projectTextH2 {
   font-size: 24px;
   margin-bottom: 10px;
 }
 
-.blogTextP {
+.projectTextP {
   font-size: 16px;
   line-height: 1.5;
 }
